@@ -11,7 +11,7 @@ const loadMoreBtn = document.querySelector('.load-more');
 const API_URL =
   'https://pixabay.com/api/?key=31180890-6e7b1107714fce14b72fdcb4e';
 let searchedWord = '';
-pageNumber = 1;
+let pageNumber = 1;
 loadMoreBtn.style.display = "none";
 
 const fetchImages = async function(searchedWord, pageNumber) {
@@ -46,26 +46,27 @@ pageNumber = 1;
 
    let galleryMarkup = [];
    fetchedImages.hits.map((fetchedImage) => {
-    galleryMarkup += `<div class="photo-card"><a href="${fetchedImage.largeImageURL}" class="image-link"><img class="image" src="${fetchedImage.webformatURL}" alt="${fetchedImage.tags}" data-large-url="${fetchedImage.largeImageURL}" loading="lazy"/>
-                </a><div class="info">
-                  <p class="info-item">
-                    <b>Likes</b>
-                    ${fetchedImage.likes}
-                  </p>
-                  <p class="info-item">
-                    <b>Views</b>
-                    ${fetchedImage.views}
-                  </p>
-                  <p class="info-item">
-                    <b>Comments</b>
-                    ${fetchedImage.comments}
-                  </p>
-                  <p class="info-item">
-                    <b>Downloads</b>
-                    ${fetchedImage.downloads}
-                  </p>
-                </div>
-                </div>`
+    galleryMarkup += `<div class="photo-card"><a href="${fetchedImage.largeImageURL}"
+    class="image-link"><img class="image" src="${fetchedImage.webformatURL}" alt="${fetchedImage.tags}" data-large-url="${fetchedImage.largeImageURL}" loading="lazy"/>
+   </a><div class="info">
+     <p class="info-item">
+       <b>Likes</b>
+       ${fetchedImage.likes}
+     </p>
+     <p class="info-item">
+       <b>Views</b>
+       ${fetchedImage.views}
+     </p>
+     <p class="info-item">
+       <b>Comments</b>
+       ${fetchedImage.comments}
+     </p>
+     <p class="info-item">
+       <b>Downloads</b>
+       ${fetchedImage.downloads}
+     </p>
+   </div>
+   </div>`
       }).join("");
       gallery.insertAdjacentHTML("beforeend", galleryMarkup);
       showSimpleLightbox();
@@ -94,33 +95,32 @@ console.log(numberOfPages)
   
    let nextImages = [];
    fetchedImages.hits.map((fetchedImage) => {
-    nextImages += `<div class="photo-card"><a href="${fetchedImage.largeImageURL}" class="image-link"><img class="image" src="${fetchedImage.webformatURL}" alt="${fetchedImage.tags}" data-large-url="${fetchedImage.largeImageURL}" loading="lazy"/>
-                </a><div class="info">
-                  <p class="info-item">
-                    <b>Likes</b>
-                    ${fetchedImage.likes}
-                  </p>
-                  <p class="info-item">
-                    <b>Views</b>
-                    ${fetchedImage.views}
-                  </p>
-                  <p class="info-item">
-                    <b>Comments</b>
-                    ${fetchedImage.comments}
-                  </p>
-                  <p class="info-item">
-                    <b>Downloads</b>
-                    ${fetchedImage.downloads}
-                  </p>
-                </div>
-                </div>`
+    nextImages += `<div class="photo-card"><a href="${fetchedImage.largeImageURL}"
+    class="image-link"><img class="image" src="${fetchedImage.webformatURL}" alt="${fetchedImage.tags}" data-large-url="${fetchedImage.largeImageURL}" loading="lazy"/>
+   </a><div class="info">
+     <p class="info-item">
+       <b>Likes</b>
+       ${fetchedImage.likes}
+     </p>
+     <p class="info-item">
+       <b>Views</b>
+       ${fetchedImage.views}
+     </p>
+     <p class="info-item">
+       <b>Comments</b>
+       ${fetchedImage.comments}
+     </p>
+     <p class="info-item">
+       <b>Downloads</b>
+       ${fetchedImage.downloads}
+     </p>
+   </div>
+   </div>`
       }).join("");
       
       gallery.insertAdjacentHTML("beforeend", nextImages);
   });
 });
-
-
 
 
 
